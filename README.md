@@ -1,3 +1,3 @@
-# Python-exercise password generator
+Random Python Scripts
 
-creating a password generator using for loop,random and lists
+Password Generator
