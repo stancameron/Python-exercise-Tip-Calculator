@@ -1,22 +1,34 @@
-#If the bill was $150.00, split between 5 people, with 12% tip. 
-print("Welcome to the tip calculator!!")
-bill = input("What was the total bill? $")
-tip_percent = input("What percentage tip would you like to give? 10,12 or 15? ")
-num_of_people = input("How many people to split the bill ")
-people = int(num_of_people)
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-#changed the string to float
-cons_bill = float(bill)
-cons_tip = int(tip_percent)
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-#calculations 
-tip_with_cons_bill = cons_bill * (cons_tip/100) + cons_bill
-each_person = tip_with_cons_bill / people
+#Eazy Level - Order not randomised:
+#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+password_list = []
 
-result = round(each_person,2)
+for char in range(1, nr_letters + 1):
+  random_char = random.choice(letters)
+  password_list.append(random_char)
 
-#"{:.2f}".format() changes the format of the code to string 
-result = "{:.2f}".format(each_person)
+for char in range(1, nr_numbers + 1):
+  ran_num = random.choice(numbers)
+  password_list.append(ran_num)
 
+for char in range(1, nr_symbols):
+  ran_symbol = random.choice(symbols)
+  password_list.append(ran_symbol)
 
-print(f"Each person should pay: ${result}")
+random.shuffle(password_list)
+
+password = ""
+for char in password_list:
+  password += char
+
+print(f"Your password is: {password}")
+  
