@@ -20,4 +20,3 @@ result = "{:.2f}".format(each_person)
 
 
 print(f"Each person should pay: ${result}")
-
